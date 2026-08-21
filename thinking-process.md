@@ -32,8 +32,8 @@
 
 10. เพิ่ม Logic ใน checkGameStatus()
     - ถ้าอยู่นอกขอบเขต = 🚫 You went out of bounds! Game over แล้วจบเกม
-    - ถ้าเจอ 🕳️ = 💀 You fell into a hole! Game over. แล้วจบเกม
+    - ถ้าเจอ O = 💀 You fell into a hole! Game over. แล้วจบเกม
     - ถ้าเจอ 🎩 = 🎉 You found the hat! You win! แล้วจบเกม
     - ถ้าเป็นพื้นที่ว่างให้เดินต่อได้
 
-11. เพิ่มคำสั่ง q ให้ผู้เล่นออกจากเกมได้ทุกเมื่อ
+11. เพิ่มคำสั่ง q ให้ผู้เล่นออกจากเกมได้

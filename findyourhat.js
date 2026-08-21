@@ -6,7 +6,7 @@ const rl = createInterface({
 });
 
 const GRID_SIZE = 5;
-const NUM_HOLES = 3;
+const NUM_HOLES = 5;
 
 class Actor {
   constructor(x, y) {
@@ -88,7 +88,7 @@ function displayMap() {
       } else if (hat.x === col && hat.y === row) {
         line += "🎩";
       } else if (holes.some((h) => h.x === col && h.y === row)) {
-        line += "🕳️";
+        line += "O";
       } else {
         line += "⬜";
       }
