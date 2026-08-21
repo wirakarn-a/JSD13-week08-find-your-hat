@@ -97,4 +97,37 @@ function displayMap() {
   }
   console.log("");
 }
+
+function checkGameStatus() {
+  // แพ้: เดินออกนอกแผนที่
+  if (actor.x < 0 || actor.x >= GRID_SIZE || actor.y < 0 || actor.y >= GRID_SIZE) {
+    return { over: true, message: "🚫 You went out of bounds! Game over." };
+  }
  
+  // แพ้: ตกหลุม
+  const fellInHole = holes.some((h) => h.x === actor.x && h.y === actor.y);
+  if (fellInHole) {
+    return { over: true, message: "💀 You fell into a hole! Game over." };
+  }
+ 
+  // ชนะ: เจอหมวก
+  if (actor.x === hat.x && actor.y === hat.y) {
+    return { over: true, message: "🎉 You found the hat! You win!" };
+  }
+ 
+  return { over: false, message: "" };
+}
+ 
+async function handleCommand(command) {
+  if (command === "w") {
+    console.log(actor.moveUp());
+  } else if (command === "s") {
+    console.log(actor.moveDown());
+  } else if (command === "a") {
+    console.log(actor.moveLeft());
+  } else if (command === "d") {
+    console.log(actor.moveRight());
+  } else {
+    console.log("Please enter w, a, s, d, or q");
+  }
+}
