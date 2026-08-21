@@ -131,3 +131,31 @@ async function handleCommand(command) {
     console.log("Please enter w, a, s, d, or q");
   }
 }
+
+async function askForCommand() {
+  rl.question("Move (w/a/s/d, q to quit): ", async (answer) => {
+    const command = answer.trim().toLowerCase();
+ 
+    if (command === "q") {
+      console.log("\n👋 Thanks for playing! Goodbye.");
+      rl.close();
+      return;
+    }
+ 
+    await handleCommand(command);
+    displayMap();
+ 
+    const status = checkGameStatus();
+    if (status.over) {
+      console.log(status.message);
+      rl.close();
+      return;
+    }
+ 
+    askForCommand();
+  });
+}
+ 
+console.log("🎩 Find the hat! Avoid the holes and stay inside the field.");
+displayMap();
+askForCommand();
